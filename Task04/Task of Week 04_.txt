@@ -1,0 +1,76 @@
+﻿Task of Week 04:
+Project on Java chat application with a basic GUI(Graphical User Interface):
+Basic Java Code using Swing library-
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+public class BasicChatApplication extends JFrame {
+    private JTextArea chatArea;
+    private JTextField messageField;
+    private JButton sendButton;
+
+
+    public BasicChatApplication() {
+        setTitle("Basic Chat Application");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+
+
+        chatArea = new JTextArea();
+        chatArea.setEditable(false);
+        add(new JScrollPane(chatArea), BorderLayout.CENTER);
+
+
+        messageField = new JTextField();
+        add(messageField, BorderLayout.SOUTH);
+
+
+        sendButton = new JButton("Send");
+        add(sendButton, BorderLayout.EAST);
+
+
+        sendButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                sendMessage();
+            }
+        });
+
+
+        messageField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                sendMessage();
+            }
+        });
+    }
+
+
+    private void sendMessage() {
+        String message = messageField.getText();
+        chatArea.append("You: " + message + "\n");
+        messageField.setText("");
+    }
+
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                BasicChatApplication chatApp = new BasicChatApplication();
+                chatApp.setVisible(true);
+            }
+        });
+    }
+}
+
+
+To see the output of the chat application, you have to compile and run it in “Command Prompt” or “Terminal”:
+  
+
+
+
+Output:
