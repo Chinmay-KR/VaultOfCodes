@@ -66,11 +66,3 @@ public class BasicChatApplication extends JFrame {
         });
     }
 }
-
-
-To see the output of the chat application, you have to compile and run it in “Command Prompt” or “Terminal”:
-  
-
-
-
-Output:
